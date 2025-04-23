@@ -1,0 +1,46 @@
+version: 1.2
+
+vars:
+  CROSS_PLATFORM: "false"
+  BUILD_DIR: "output"
+
+ignore:
+  - "output/**"
+  - ".git/**"
+  - "*.log"
+  - ".DS_Store"
+
+setup:
+  - name: "Install dependencies"
+    command: "go mod tidy"
+  - name: "Creating output-folder"
+    command: "mkdir -p $BUILD_DIR"
+  - name: "copying config file"
+    command: "cp -r gitdash.yaml ~/.gitdash.yaml"
+
+steps:
+  - name: "Checking vulnarabilities in code and deps"
+    command: "go vet ./..."
+  - name: "Linting code"
+    command: "golangci-lint run ./..."
+  - name: "Building for mac os"
+    command: "go build -o gitdash ./cmd"
+  - name: "Building for linux"
+    command: "GOOS=linux GOARCH=amd64 go build -o gitdash-linux-amd64 ./cmd"
+    if: "$CROSS_PLATFORM == true"
+  - name: "Building for windows"
+    command: "GOOS=windows GOARCH=amd64 go build -o gitdash-windows-amd64.exe ./cmd"
+    if: "$CROSS_PLATFORM == true"
+
+post_build:
+  - name: "Moving binarys to output folder"
+    command: "mv gitdash $BUILD_DIR/"
+  - name: "Moving linux binary to output folder"
+    command: "mv gitdash-linux-amd64 $BUILD_DIR/"
+    if: "$CROSS_PLATFORM == true"
+  - name: "Moving windows binary to output folder"
+    command: "mv gitdash-windows-amd64.exe $BUILD_DIR/"
+    if: "$CROSS_PLATFORM == true"
+  - name: "Creating zip file"
+    command: "zip -r $BUILD_DIR/gitdash.zip $BUILD_DIR/*"
+    if: "$CROSS_PLATFORM == true"

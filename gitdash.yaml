@@ -1,0 +1,7 @@
+paths:
+  - ~/code
+ignore:
+  - "**/vendor"
+  - "**/node_modules"
+theme:
+  accent_color: cyan
