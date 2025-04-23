@@ -1,6 +1,6 @@
-GitDash 🖥️
+# ⚙️ GitDash
 
-# 🔨 Building 
+## 🔨 Building 
 1. Clone the repo
 `git clone git@github.com:RickardAhlstedt/GitDash.git && cd GitDash`
 2. If you have my [cicd-go](https://github.com/RickardAhlstedt/cicd-go) installed prior simply execute `cicd-go`
@@ -13,11 +13,11 @@ cp gitdash.yaml ~/.gitdash.yaml
 cp gitdash /usr/local/bin/gitdash
 ```
 
-# 🚀 Usage
+## 🚀 Usage
 Run `gitdash` and it will output a status for your configured path (from `~/.gitdash.yaml`)  
 If you wish to use a different config-file, please use the `--config`-flag and provide a path to the file you wish to use
 
-# 📝 Configuration
+## 📝 Configuration
 ```yaml
 paths:
   - ~/code
@@ -31,7 +31,7 @@ theme:
 - Specify paths for ignore, for traversing projects
 - In the future you will be able to specify a theme for the output, planned to be used when tview is implemented
 
-## Output
+## 👓 Output
 ```
 ╰─ gitdash
 📂 Scanning paths for git repositories...
