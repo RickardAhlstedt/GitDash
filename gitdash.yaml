@@ -3,5 +3,15 @@ paths:
 ignore:
   - "**/vendor"
   - "**/node_modules"
+sort_by: name
+fetch_origin: false
 theme:
-  accent_color: cyan
+  name: lolcat
+  # colors:
+  #   branch: "#ffaa00"
+  #   ahead: "#00ff88"
+  #   behind: "#ff5588"
+  #   dirty: "#ff3333"
+  #   clean: "#00dd00"
+  #   path: "#888888"
+  #   header: "#44ccff"

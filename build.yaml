@@ -33,6 +33,8 @@ steps:
     if: "$CROSS_PLATFORM == true"
 
 post_build:
+  - name: "Copying gitdash.yaml to output"
+    command: "cp gitdash.yaml $BUILD_DIR/gitdash.yaml"
   - name: "Moving binarys to output folder"
     command: "mv gitdash $BUILD_DIR/"
   - name: "Moving linux binary to output folder"

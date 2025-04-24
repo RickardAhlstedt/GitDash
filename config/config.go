@@ -12,8 +12,11 @@ import (
 type Config struct {
 	Paths  []string `yaml:"paths"`
 	Ignore []string `yaml:"ignore"`
+	SortBy string   `yaml:"sort_by"`
+	Fetch  bool     `yaml:"fetch_origin"`
 	Theme  struct {
-		AccentColor string `yaml:"accent_color"`
+		Name   string            `yaml:"name,omitempty"`   // t.ex. "lolcat"
+		Colors map[string]string `yaml:"colors,omitempty"` // override
 	} `yaml:"theme"`
 }
 

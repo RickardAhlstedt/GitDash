@@ -25,11 +25,10 @@ ignore:
   - "**/vendor"
   - "**/node_modules"
 theme:
-  accent_color: cyan #Not yet implemented
+  name: lolcat
 ```
 - You can setup mulitple paths that the tool will check
 - Specify paths for ignore, for traversing projects
-- In the future you will be able to specify a theme for the output, planned to be used when tview is implemented
 
 ## 👓 Output
 ```
@@ -49,3 +48,39 @@ theme:
 |       \ How many commits the repo is ahead with
  \ The current branch of the repo
 ```
+
+## 🎨 Themes
+Current themes that are built in are:
+- lolcat
+- nord
+- monochrome
+- dracula
+- solarized-dark
+- solarized-light
+
+ℹ️ **Please note** that if an invalid theme or no theme/colors are defined, the TUI will default to white.
+
+### Theming
+You can supply your own theme by defining it in `~/.gitdash.yaml`
+```yaml
+theme:
+  colors:
+    branch: "#ffaa00"
+    ahead: "#00ff88"
+    behind: "#ff5588"
+    dirty: "#ff3333"
+    clean: "#00dd00"
+    path: "#888888"
+    header: "#44ccff"
+```
+
+## CLI Flags for GitDash
+
+You can use the following flags when running `gitdash` to customize its behavior:
+
+- `--config <path>`: Specify the path to the GitDash configuration file. Default is `~/.gitdash.yaml`.
+- `--sort <name|branch|ahead|behind>`: Sort repositories by `name`, `branch`, `ahead`, or `behind`.
+- `--tui`: Use Text User Interface (TUI) to display repositories in an interactive view. Default is `false`.
+- `--theme <theme_name>`: Set a theme for the interface (e.g., `lolcat`, `dracula`, `nord`, or custom theme from config).
+- `--fetch <true|false>`: Fetch the latest status from the origin for each repository. Default is `false`.
+- `--quiet`: Suppress log messages and display only essential information. Default is `false`.

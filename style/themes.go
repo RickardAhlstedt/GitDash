@@ -1,0 +1,58 @@
+package style
+
+var themes = map[string]map[string]string{
+	"lolcat": {
+		"branch": "#ff69b4",
+		"ahead":  "#ffa500",
+		"behind": "#00ffff",
+		"dirty":  "#ff0000",
+		"clean":  "#00ff00",
+		"path":   "#999999",
+		"header": "#ffcc00",
+	},
+	"nord": {
+		"branch": "#88c0d0",
+		"ahead":  "#a3be8c",
+		"behind": "#bf616a",
+		"dirty":  "#d08770",
+		"clean":  "#8fbcbb",
+		"path":   "#4c566a",
+		"header": "#81a1c1",
+	},
+	"monochrome": {
+		"branch": "#ffffff",
+		"ahead":  "#aaaaaa",
+		"behind": "#999999",
+		"dirty":  "#ffffff",
+		"clean":  "#cccccc",
+		"path":   "#666666",
+		"header": "#ffffff",
+	},
+	"dracula": {
+		"branch": "#bd93f9",
+		"ahead":  "#50fa7b",
+		"behind": "#ff79c6",
+		"dirty":  "#ff5555",
+		"clean":  "#8be9fd",
+		"path":   "#6272a4",
+		"header": "#f1fa8c",
+	},
+	"solarized-dark": {
+		"branch": "#268bd2",
+		"ahead":  "#859900",
+		"behind": "#dc322f",
+		"dirty":  "#cb4b16",
+		"clean":  "#2aa198",
+		"path":   "#586e75",
+		"header": "#b58900",
+	},
+	"solarized-light": {
+		"branch": "#268bd2",
+		"ahead":  "#859900",
+		"behind": "#dc322f",
+		"dirty":  "#cb4b16",
+		"clean":  "#2aa198",
+		"path":   "#93a1a1",
+		"header": "#657b83",
+	},
+}
